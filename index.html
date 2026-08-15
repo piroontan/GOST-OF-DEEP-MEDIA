@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,initial-scale=1">
+
+
+<!-- =====================================================
+     معلومات الموقع
+===================================================== -->
+
+<title>GOST OF DEEP MEDIA</title>
+
+<meta name="application-name"
+      content="GOST OF DEEP MEDIA">
+
+<meta name="description"
+      content="GOST OF DEEP MEDIA - منصة لمشاركة أخبار وتحديثات مشاريع تطوير الألعاب والبرمجة.">
+
+<meta name="keywords"
+      content="GOST OF DEEP MEDIA, GOST OF DEEP, Game Development, Games, Godot, Programming, Projects">
+
+<meta name="author"
+      content="GOST OF DEEP MEDIA">
+
+<meta name="robots"
+      content="index, follow">
+
+
+<!-- =====================================================
+     FAVICON
+===================================================== -->
+
+<link rel="icon"
+      type="image/png"
+      href="icon.png">
+
+<link rel="shortcut icon"
+      type="image/png"
+      href="icon.png">
+
+<link rel="apple-touch-icon"
+      href="icon.png">
+
+
+<!-- =====================================================
+     لون المتصفح
+===================================================== -->
+
+<meta name="theme-color"
+      content="#0b0b0b">
+
+
+<!-- =====================================================
+     Open Graph
+===================================================== -->
+
+<meta property="og:type"
+      content="website">
+
+<meta property="og:title"
+      content="GOST OF DEEP MEDIA">
+
+<meta property="og:description"
+      content="منصة GOST OF DEEP MEDIA لمشاركة أخبار وتحديثات مشاريع تطوير الألعاب والبرمجة.">
+
+<meta property="og:image"
+      content="icon.png">
+
+<meta property="og:image:type"
+      content="image/png">
+
+<meta property="og:image:alt"
+      content="GOST OF DEEP MEDIA">
+
+<meta property="og:site_name"
+      content="GOST OF DEEP MEDIA">
+
+
+<!-- =====================================================
+     Twitter / X
+===================================================== -->
+
+<meta name="twitter:card"
+      content="summary">
+
+<meta name="twitter:title"
+      content="GOST OF DEEP MEDIA">
+
+<meta name="twitter:description"
+      content="GOST OF DEEP MEDIA - Game Development & Programming">
+
+<meta name="twitter:image"
+      content="icon.png">
+
+
+<!-- =====================================================
+     بيانات لمحركات البحث
+===================================================== -->
+
+<script type="application/ld+json">
+
+{
+    "@context": "https://schema.org",
+
+    "@type": "WebSite",
+
+    "name": "GOST OF DEEP MEDIA",
+
+    "alternateName": "GOST OF DEEP",
+
+    "description":
+        "منصة لمشاركة أخبار وتحديثات مشاريع تطوير الألعاب والبرمجة.",
+
+    "url":
+        "https://YOUR-DOMAIN.COM/",
+
+    "image":
+        "https://YOUR-DOMAIN.COM/icon.png"
+}
+
+</script>
+
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:Arial,sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(5,5,5,.82),
+            rgba(5,5,5,.94)
+        ),
+        url("icon.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    color:#fff;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-5;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(229,9,20,.12),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(229,9,20,.08),
+            transparent 30%
+        );
+}
+
+
+/* =====================================================
+   BUBBLES
+===================================================== */
+
+.bubble{
+
+    position:absolute;
+
+    bottom:-150px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,.25),
+            rgba(229,9,20,.08) 45%,
+            rgba(229,9,20,.02) 70%,
+            transparent 75%
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 0 20px
+        rgba(229,9,20,.12),
+
+        inset 0 0 15px
+        rgba(255,255,255,.08);
+
+    animation:
+        floatBubble
+        linear infinite;
+
+    opacity:.6;
+}
+
+
+@keyframes floatBubble{
+
+    0%{
+
+        transform:
+            translateY(0)
+            translateX(0)
+            scale(.7);
+
+        opacity:0;
+    }
+
+    10%{
+
+        opacity:.6;
+    }
+
+    50%{
+
+        transform:
+            translateY(-55vh)
+            translateX(50px)
+            scale(1);
+    }
+
+    80%{
+
+        opacity:.4;
+    }
+
+    100%{
+
+        transform:
+            translateY(-120vh)
+            translateX(-70px)
+            scale(1.15);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   GLOW
+===================================================== */
+
+.glow{
+
+    position:fixed;
+
+    width:400px;
+
+    height:400px;
+
+    border-radius:50%;
+
+    background:
+        rgba(229,9,20,.07);
+
+    filter:blur(100px);
+
+    z-index:-4;
+
+    pointer-events:none;
+
+    animation:
+        glowMove
+        10s ease-in-out infinite alternate;
+}
+
+
+.glow.one{
+
+    top:10%;
+
+    left:-150px;
+}
+
+
+.glow.two{
+
+    bottom:0;
+
+    right:-150px;
+
+    animation-delay:3s;
+}
+
+
+@keyframes glowMove{
+
+    from{
+
+        transform:
+            translate(0,0);
+    }
+
+    to{
+
+        transform:
+            translate(100px,-60px);
+    }
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    background:
+        rgba(10,10,10,.78);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    padding:22px 15px;
+
+    text-align:center;
+
+    box-shadow:
+        0 5px 30px
+        rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    font-size:29px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    text-shadow:
+        0 0 20px
+        rgba(229,9,20,.25);
+}
+
+
+.logo span{
+
+    color:#e50914;
+
+    text-shadow:
+        0 0 15px
+        rgba(229,9,20,.7);
+}
+
+
+/* =====================================================
+   NAV
+===================================================== */
+
+nav{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-top:18px;
+}
+
+
+nav button{
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        rgba(25,25,25,.75);
+
+    color:#aaa;
+
+    padding:9px 16px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    backdrop-filter:
+        blur(8px);
+}
+
+
+nav button:hover{
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(229,9,20,.15);
+
+    color:#fff;
+
+    border-color:
+        rgba(229,9,20,.5);
+}
+
+
+nav button.active{
+
+    background:#e50914;
+
+    color:#fff;
+
+    border-color:#e50914;
+
+    box-shadow:
+        0 0 20px
+        rgba(229,9,20,.3);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:45px 15px;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    text-align:center;
+
+    margin-bottom:40px;
+}
+
+
+.intro h1{
+
+    font-size:32px;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,255,255,.1);
+}
+
+
+.intro p{
+
+    color:#999;
+
+    margin-top:9px;
+
+    line-height:1.8;
+}
+
+
+.intro h1::after{
+
+    content:"";
+
+    display:block;
+
+    width:60px;
+
+    height:3px;
+
+    background:#e50914;
+
+    margin:13px auto 0;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 0 15px
+        rgba(229,9,20,.7);
+}
+
+
+/* =====================================================
+   POSTS
+===================================================== */
+
+.posts{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:25px;
+}
+
+
+/* =====================================================
+   POST
+===================================================== */
+
+.post{
+
+    position:relative;
+
+    background:
+        rgba(18,18,18,.72);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    transition:
+
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0,0,0,.25);
+}
+
+
+.post::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-100%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.04),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:.7s;
+
+    pointer-events:none;
+}
+
+
+.post:hover::before{
+
+    left:130%;
+}
+
+
+.post:hover{
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(229,9,20,.45);
+
+    box-shadow:
+
+        0 15px 50px
+        rgba(0,0,0,.45),
+
+        0 0 25px
+        rgba(229,9,20,.08);
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.post-image{
+
+    width:100%;
+
+    height:280px;
+
+    background:#181818;
+
+    overflow:hidden;
+}
+
+
+.post-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+}
+
+
+.post:hover
+.post-image img{
+
+    transform:
+        scale(1.06);
+
+    filter:
+        brightness(1.08);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+
+    padding:20px;
+}
+
+
+.title{
+
+    font-size:21px;
+
+    margin-bottom:10px;
+}
+
+
+.desc{
+
+    color:#aaa;
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+
+.tag{
+
+    display:inline-block;
+
+    margin-top:13px;
+
+    color:#e50914;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+
+.meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#666;
+
+    font-size:12px;
+
+    margin-top:15px;
+}
+
+
+.stats{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:16px;
+
+    color:#aaa;
+
+    font-size:13px;
+
+    flex-wrap:wrap;
+}
+
+
+.stats span{
+
+    transition:.2s;
+}
+
+
+.stats span:hover{
+
+    color:#fff;
+}
+
+
+/* =====================================================
+   RATING
+===================================================== */
+
+.rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:18px;
+
+    flex-wrap:wrap;
+}
+
+
+.rating > span{
+
+    color:#aaa;
+
+    margin-left:4px;
+}
+
+
+.rating button{
+
+    border:
+        1px solid #333;
+
+    background:
+        rgba(24,24,24,.8);
+
+    color:#ffd700;
+
+    padding:6px 9px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.rating button:hover{
+
+    background:#e50914;
+
+    color:#fff;
+
+    border-color:#e50914;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   COMMENTS
+===================================================== */
+
+.comment-box{
+
+    margin-top:20px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+}
+
+
+.comment-box textarea{
+
+    width:100%;
+
+    height:70px;
+
+    resize:none;
+
+    background:
+        rgba(5,5,5,.65);
+
+    color:#fff;
+
+    border:
+        1px solid #333;
+
+    border-radius:8px;
+
+    padding:11px;
+
+    outline:none;
+
+    font-family:Arial,sans-serif;
+
+    transition:.2s;
+}
+
+
+.comment-box textarea:focus{
+
+    border-color:#e50914;
+
+    box-shadow:
+        0 0 15px
+        rgba(229,9,20,.1);
+}
+
+
+.comment-box > button{
+
+    margin-top:9px;
+
+    border:0;
+
+    background:#e50914;
+
+    color:#fff;
+
+    padding:9px 16px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+
+.comment-box > button:hover{
+
+    background:#ff1825;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 5px 15px
+        rgba(229,9,20,.25);
+}
+
+
+.comments{
+
+    margin-top:13px;
+}
+
+
+.comment{
+
+    background:
+        rgba(14,14,14,.7);
+
+    border:
+        1px solid
+        rgba(255,255,255,.04);
+
+    border-radius:8px;
+
+    padding:10px;
+
+    margin-top:7px;
+
+    color:#aaa;
+
+    font-size:13px;
+}
+
+
+.comment b{
+
+    color:#e50914;
+
+    margin-left:6px;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty{
+
+    display:none;
+
+    text-align:center;
+
+    color:#777;
+
+    padding:70px 20px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    margin-top:40px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    padding:30px 20px;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:13px;
+
+    background:
+        rgba(5,5,5,.35);
+
+    backdrop-filter:
+        blur(10px);
+}
+
+
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+
+#topButton{
+
+    position:fixed;
+
+    bottom:20px;
+
+    left:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    background:
+        rgba(20,20,20,.8);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    z-index:200;
+
+    display:none;
+
+    backdrop-filter:blur(10px);
+
+    transition:.25s;
+}
+
+
+#topButton:hover{
+
+    background:#e50914;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 20px
+        rgba(229,9,20,.4);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .posts{
+
+        grid-template-columns:1fr;
+    }
+
+    .post-image{
+
+        height:230px;
+    }
+
+    .logo{
+
+        font-size:24px;
+    }
+
+    .intro h1{
+
+        font-size:25px;
+    }
+
+    .container{
+
+        padding-top:30px;
+    }
+}
+
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        scroll-behavior:auto !important;
+
+        transition-duration:.01ms !important;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<div
+    class="background"
+    id="background">
+</div>
+
+<div class="glow one"></div>
+
+<div class="glow two"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="logo">
+
+        GOST OF
+        <span>DEEP MEDIA</span>
+
+    </div>
+
+
+    <nav>
+
+        <button
+            class="active"
+            onclick="filterPosts('all',this)">
+
+            الكل
+
+        </button>
+
+
+        <button
+            onclick="filterPosts('Projects',this)">
+
+            Projects
+
+        </button>
+
+
+        <button
+            onclick="filterPosts('Game',this)">
+
+            Game
+
+        </button>
+
+
+        <button
+            onclick="filterPosts('Godot',this)">
+
+            Godot
+
+        </button>
+
+
+        <button
+            onclick="filterPosts('Other',this)">
+
+            أخرى
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+<section class="intro">
+
+    <h1>
+
+        آخر التطورات
+
+    </h1>
+
+
+    <p>
+
+        تابع آخر أخبار وتحديثات
+        GOST OF DEEP MEDIA
+        في تطوير الألعاب والبرمجة.
+
+    </p>
+
+</section>
+
+
+<section
+    class="posts"
+    id="posts">
+</section>
+
+
+<div
+    class="empty"
+    id="empty">
+
+    لا توجد منشورات في هذا القسم.
+
+</div>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    © 2026 GOST OF DEEP MEDIA
+
+    <br><br>
+
+    Programming • Game Development • Projects
+
+</footer>
+
+
+<!-- =====================================================
+     TOP BUTTON
+===================================================== -->
+
+<button
+    id="topButton"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+    ↑
+
+</button>
+
+
+<script>
+
+
+/* =====================================================
+   BUBBLES
+===================================================== */
+
+const background =
+document.getElementById("background");
+
+
+for(let i=0;i<28;i++){
+
+    const bubble =
+    document.createElement("div");
+
+    bubble.className="bubble";
+
+
+    const size =
+        Math.floor(
+            Math.random()*90
+        ) + 20;
+
+
+    bubble.style.width =
+        size+"px";
+
+
+    bubble.style.height =
+        size+"px";
+
+
+    bubble.style.left =
+        Math.random()*100+"%";
+
+
+    bubble.style.animationDuration =
+        (Math.random()*15+12)+"s";
+
+
+    bubble.style.animationDelay =
+        (Math.random()*15)+"s";
+
+
+    bubble.style.opacity =
+        (Math.random()*.4+.15);
+
+
+    background.appendChild(bubble);
+
+}
+
+
+/* =====================================================
+   VISITOR
+===================================================== */
+
+let visitorID =
+localStorage.getItem(
+    "arwa7_visitor"
+);
+
+
+if(!visitorID){
+
+    visitorID =
+        "زائر #" +
+        Math.floor(
+            100000 +
+            Math.random()*900000
+        );
+
+
+    localStorage.setItem(
+        "arwa7_visitor",
+        visitorID
+    );
+}
+
+
+/* =====================================================
+   POSTS
+===================================================== */
+
+let posts = [
+
+
+{
+
+    id:1,
+
+    title:
+        "البوابات الآن تعمل ويمكنك البناء وجمع الموارد داخل اللعبة",
+
+    category:
+        "Game",
+
+    image:
+        "1 (2).png",
+
+    description:
+        "أواجه مشكلة بسيطة في جر المقطورة، لكن اللعبة تعمل بسلاسة أفضل من السابق.",
+
+    date:
+        "14 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+},
+
+
+{
+
+    id:2,
+
+    title:
+        "قمت بتأجيل إصدار التحديث القادم للعبة التهريب",
+
+    category:
+        "Game",
+
+    image:
+        "1 (6).png",
+
+    description:
+        "أضفت نظام مطاردة جديد، لكن اللعبة لا تزال غير مكتملة.",
+
+    date:
+        "14 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+},
+
+
+{
+
+    id:3,
+
+    title:
+        "سيكون التحديث القادم متأخرًا للعبة",
+
+    category:
+        "Game",
+
+    image:
+        "1 (3).png",
+
+    description:
+        "أعمل على تحسين المجسمات وتقليل عدد الـ Polygons، كما أحاول تشغيل اللعبة على الهاتف.",
+
+    date:
+        "13 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+},
+
+
+{
+
+    id:4,
+
+    title:
+        "تطوير نظام شراء السيارات",
+
+    category:
+        "Game",
+
+    image:
+        "1 (4).png",
+
+    description:
+        "تطوير نظام شراء السيارات وقيادتها والكاميرا والحركة داخل المشروع.",
+
+    date:
+        "12 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+},
+
+
+{
+
+    id:5,
+
+    title:
+        "تحديث جديد قادم",
+
+    category:
+        "Game",
+
+    image:
+        "1 (1).png",
+
+    description:
+        "تحديث جديد قادم، وسأشارك تفاصيله والتطورات القادمة هنا.",
+
+    date:
+        "8 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+},
+
+
+{
+
+    id:6,
+
+    title:
+        "افتتاح الموقع",
+
+    category:
+        "Game",
+
+    image:
+        "1.png",
+
+    description:
+        "أتمنى أن ينال الموقع إعجابكم واهتمامكم.",
+
+    date:
+        "8 أغسطس 2026",
+
+    views:0,
+
+    rating:0,
+
+    ratings:0,
+
+    comments:[]
+}
+
+];
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
+
+let saved =
+localStorage.getItem(
+    "arwa7_posts"
+);
+
+
+if(saved){
+
+    try{
+
+        let old =
+            JSON.parse(saved);
+
+
+        old.forEach(oldPost=>{
+
+            let post =
+                posts.find(
+                    p=>p.id===oldPost.id
+                );
+
+
+            if(post){
+
+                post.views =
+                    oldPost.views || 0;
+
+                post.rating =
+                    oldPost.rating || 0;
+
+                post.ratings =
+                    oldPost.ratings || 0;
+
+                post.comments =
+                    oldPost.comments || [];
+            }
+
+        });
+
+    }
+
+    catch(e){
+
+        console.log(
+            "تعذر تحميل البيانات"
+        );
+    }
+}
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+function saveData(){
+
+    localStorage.setItem(
+
+        "arwa7_posts",
+
+        JSON.stringify(posts)
+
+    );
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderPosts(list){
+
+    const box =
+        document.getElementById(
+            "posts"
+        );
+
+
+    box.innerHTML="";
+
+
+    document.getElementById(
+        "empty"
+    ).style.display =
+
+        list.length
+        ? "none"
+        : "block";
+
+
+    list.forEach(post=>{
+
+
+        let average =
+
+            post.ratings > 0
+
+            ?
+
+            (
+                post.rating /
+                post.ratings
+            ).toFixed(1)
+
+            :
+
+            "0.0";
+
+
+        let commentsHTML =
+
+            post.comments
+            .slice(-5)
+            .reverse()
+            .map(comment=>`
+
+                <div class="comment">
+
+                    <b>
+
+                        ${escapeHTML(
+                            comment.user
+                        )}
+
+                    </b>
+
+                    ${escapeHTML(
+                        comment.text
+                    )}
+
+                </div>
+
+            `)
+            .join("");
+
+
+        box.innerHTML += `
+
+        <article
+            class="post"
+            data-category="${escapeHTML(
+                post.category
+            )}">
+
+
+            <div class="post-image">
+
+                <img
+                    src="${post.image}"
+                    alt="${escapeHTML(
+                        post.title
+                    )}"
+                    loading="lazy">
+
+            </div>
+
+
+            <div class="content">
+
+
+                <h2 class="title">
+
+                    ${escapeHTML(
+                        post.title
+                    )}
+
+                </h2>
+
+
+                <p class="desc">
+
+                    ${escapeHTML(
+                        post.description
+                    )}
+
+                </p>
+
+
+                <span class="tag">
+
+                    #${escapeHTML(
+                        post.category
+                    )}
+
+                </span>
+
+
+                <div class="meta">
+
+                    <span>
+
+                        ${escapeHTML(
+                            post.date
+                        )}
+
+                    </span>
+
+
+                    <span>
+
+                        ${post.comments.length}
+                        تعليق
+
+                    </span>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <span>
+
+                        👁 ${post.views}
+
+                    </span>
+
+
+                    <span>
+
+                        ⭐ ${average}
+
+                    </span>
+
+
+                    <span>
+
+                        💬 ${post.comments.length}
+
+                    </span>
+
+                </div>
+
+
+                <div class="rating">
+
+                    <span>
+
+                        قيّم:
+
+                    </span>
+
+
+                    <button
+                        onclick="ratePost(${post.id},1)">
+
+                        ★
+
+                    </button>
+
+
+                    <button
+                        onclick="ratePost(${post.id},2)">
+
+                        ★★
+
+                    </button>
+
+
+                    <button
+                        onclick="ratePost(${post.id},3)">
+
+                        ★★★
+
+                    </button>
+
+
+                    <button
+                        onclick="ratePost(${post.id},4)">
+
+                        ★★★★
+
+                    </button>
+
+
+                    <button
+                        onclick="ratePost(${post.id},5)">
+
+                        ★★★★★
+
+                    </button>
+
+                </div>
+
+
+                <div class="comment-box">
+
+
+                    <textarea
+                        id="comment-${post.id}"
+                        maxlength="500"
+                        placeholder="اكتب تعليقًا مجهولًا..."></textarea>
+
+
+                    <button
+                        onclick="addComment(${post.id})">
+
+                        نشر التعليق
+
+                    </button>
+
+
+                    <div class="comments">
+
+                        ${commentsHTML}
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </article>
+
+        `;
+
+    });
+}
+
+
+/* =====================================================
+   COMMENT
+===================================================== */
+
+function addComment(id){
+
+    let post =
+        posts.find(
+            p=>p.id===id
+        );
+
+
+    let input =
+        document.getElementById(
+            "comment-"+id
+        );
+
+
+    let text =
+        input.value.trim();
+
+
+    if(!text){
+
+        alert(
+            "اكتب تعليقًا أولًا"
+        );
+
+        return;
+    }
+
+
+    post.comments.push({
+
+        user:
+            visitorID,
+
+        text:
+            text,
+
+        date:
+            new Date().toISOString()
+
+    });
+
+
+    input.value="";
+
+
+    saveData();
+
+
+    renderPosts(posts);
+}
+
+
+/* =====================================================
+   RATING
+===================================================== */
+
+function ratePost(id,value){
+
+    let key =
+        "arwa7_rated_"+id;
+
+
+    if(
+        localStorage.getItem(key)
+    ){
+
+        alert(
+            "لقد قمت بتقييم هذا المنشور مسبقًا."
+        );
+
+        return;
+    }
+
+
+    let post =
+        posts.find(
+            p=>p.id===id
+        );
+
+
+    post.rating += value;
+
+    post.ratings++;
+
+
+    localStorage.setItem(
+        key,
+        "true"
+    );
+
+
+    saveData();
+
+
+    renderPosts(posts);
+}
+
+
+/* =====================================================
+   VIEWS
+===================================================== */
+
+function registerViews(){
+
+    posts.forEach(post=>{
+
+        let key =
+            "arwa7_view_"+post.id;
+
+
+        if(
+            !sessionStorage.getItem(key)
+        ){
+
+            post.views++;
+
+
+            sessionStorage.setItem(
+                key,
+                "true"
+            );
+        }
+
+    });
+
+
+    saveData();
+}
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+function filterPosts(
+    category,
+    button
+){
+
+    document
+        .querySelectorAll(
+            "nav button"
+        )
+        .forEach(btn=>{
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    if(category==="all"){
+
+        renderPosts(posts);
+
+    }
+
+    else{
+
+        renderPosts(
+
+            posts.filter(
+                p=>
+                    p.category===
+                    category
+            )
+
+        );
+
+    }
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+}
+
+
+/* =====================================================
+   TOP BUTTON
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        const btn =
+            document.getElementById(
+                "topButton"
+            );
+
+
+        if(
+            window.scrollY > 400
+        ){
+
+            btn.style.display =
+                "block";
+
+        }
+
+        else{
+
+            btn.style.display =
+                "none";
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+registerViews();
+
+renderPosts(posts);
+
+</script>
+
+</body>
+</html>
